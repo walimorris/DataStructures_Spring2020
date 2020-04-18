@@ -17,8 +17,6 @@ public class Octagon implements Shape {
     private double a; // represents the length of each equal side of Octagon  
 
     /**
-     * Constructs an eight equal sided Octagon with length of sides equal to a
-     * Throws Excpetion if length is less than or equal to 0
      * @param a : The length of the side 
      */
     public Octagon(double a) { 
@@ -26,8 +24,7 @@ public class Octagon implements Shape {
         this.a = a; 
     } 
 
-    /**
-     * Equation to find the area of an eight sided regular Octagon 
+    /** 
      * @return Area of regular Octagon
      */
     public double getArea() { 
