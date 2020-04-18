@@ -1,9 +1,9 @@
 /**
  * An Octagon is an eight sided Polygon with each side being equal in length or,
- * sometimes, unequal in length
+ * sometimes, unequal in length and therefore its area can not be computed
  *
- * Equal sided Octagons are considered normal Octagons and the Octagon in which 
- * this class implements
+ * Equal sided Octagons are considered regular Octagons, has a formaula to compute
+ * its area and is the Octagon type this class implements
  *
  * The Octagon class implements the Shape.java Interface and currently commits
  * to finding the Area and Perimeter of an Octagon
@@ -27,15 +27,15 @@ public class Octagon implements Shape {
     } 
 
     /**
-     * Equation to find the area of an eight sided normal Octagon 
-     * @return Area of normal Octagon
+     * Equation to find the area of an eight sided regular Octagon 
+     * @return Area of regular Octagon
      */
     public double getArea() { 
         return 2 * this.a * this.a * ( 1 + Math.sqrt(2)); 
     } 
 
     /** 
-     * @return Perimeter of normal Octagon
+     * @return Perimeter of regular Octagon
      */
     public double getPerimeter() { 
 	return 8 * this.a; 
