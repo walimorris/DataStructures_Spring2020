@@ -7,7 +7,7 @@
  *
  * Examples and notes below 
  *
- * @author Wali Morris<walimmorris@gmail.com>
+ * @author Wali Morris
  */
 
 import java.util.*; 
@@ -19,7 +19,7 @@ public class PanelExamples {
 	DrawingPanel panel = new DrawingPanel(400, 400);  
 	
 	/* DrawingPanel obj has method setBackground(Color c) that takes object 
-	 * of type Color and sets the panels background, cyan is a nice color */ 	
+	 * of type Color and sets the panels background */ 	
 	panel.setBackground(Color.CYAN); 
 	
 	// calls the panel with graphics on screen
