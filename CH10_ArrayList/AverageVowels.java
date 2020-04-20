@@ -1,4 +1,6 @@
 /**
+ * Exercise 1 
+ * 
  * Write a method called averageVowels that takes an ArrayList of Strings as a 
  * parameter and returns the average number of vowel characters ( a, e, i, o, u)
  * in all Strings in the List
