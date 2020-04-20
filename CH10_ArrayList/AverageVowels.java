@@ -41,3 +41,39 @@ public class AverageVowels {
     } 
 }     
 	        	    
+ * Write a method called swapPairs that switches the order of values in an ArrayList
+ * of Strings in a pairwise fashion
+ *
+ * Your method should switch the order of the first two values, then switch the order 
+ * of the next two, and so on
+ *
+ * If the number of elements is odd, the method should not remove the final method
+ *
+ * @author Wali Morris
+ * @since  04/20/2020
+ */
+
+import java.util.*;
+
+public class SwapPairs {
+    public static void main(String[] args) {
+        ArrayList<String> input = new ArrayList<>(
+                        List.of("to", "be", "or", "not", "to", "be", "Hamlet"));
+
+        System.out.print(input + " -------> ");
+        swapPairs(input);
+    }
+
+    public static void swapPairs(ArrayList<String> list) {
+        int i = 0;
+        int jumps = 0;
+        while ( jumps < list.size() / 2 ) {
+            String temp = list.get(i); // holds string in current pos in temp  
+            list.set(i, list.get(i+1)); // puts next String in place of current
+            list.set(i+1, temp); // swaps i+1 for i 
+            i += 2; // skip one place
+            jumps++;
+        }
+        System.out.println(list);
+    }
+}
