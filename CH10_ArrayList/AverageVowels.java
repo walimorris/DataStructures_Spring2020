@@ -97,7 +97,7 @@ public class RemoveEvenLength {
         ArrayList<String> input = new ArrayList<>(
                         List.of("Aquafina", "water", "is", "nice", "and", "cold"));
 
-        System.out.print(input + " -------->");
+        System.out.print(input + " --------> ");
         removeEvenLength(input);
     }
 
