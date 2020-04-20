@@ -78,3 +78,36 @@ public class SwapPairs {
         System.out.println(list);
     }
 }
+
+/**
+ * Exercise 3
+ *
+ * Write a method called removeEvenLength that takes an ArrayList of 
+ * Strings as parameter and removes all of the strings of even length
+ * from the list
+ *
+ * @author Wali Morris 
+ * @since  04/20/2020
+ */
+
+import java.util.*;
+
+public class RemoveEvenLength {
+    public static void main(String[] args) {
+        ArrayList<String> input = new ArrayList<>(
+                        List.of("Aquafina", "water", "is", "nice", "and", "cold"));
+
+        System.out.print(input + " -------->");
+        removeEvenLength(input);
+    }
+
+    public static void removeEvenLength(ArrayList<String> list) {
+        for ( int i = list.size() - 1; i >= 0; i-- ) { // begin at last word
+            String word = list.get(i);
+            if ( word.length() % 2 == 0 ) {
+                list.remove(i); // word is even, delete it  
+            }
+        }
+        System.out.println(list);
+    }
+}
