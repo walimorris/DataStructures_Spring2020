@@ -42,6 +42,8 @@ public class AverageVowels {
 }     
 	        	    
 /**
+ * Exercise 2 
+ *
  * Write a method called swapPairs that switches the order of values in an ArrayList
  * of Strings in a pairwise fashion
  *
