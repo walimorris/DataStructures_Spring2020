@@ -142,3 +142,47 @@ public class DoubleList {
         System.out.println(list);
     }
 }
+
+/** 
+ * Exercise 5
+ *
+ * Write a method called scaleByK that takes an ArrayList of integers as a 
+ * parameter and replaces every integer of value K with K copies of itself
+ *
+ * Zero and negative numbers should be removed from the list by this method 
+ *
+ * @author Wali Morris 
+ * @since 04/21/2020
+ */
+
+import java.util.*;
+
+public class ScaleByK {
+    public static void main(String[] args) {
+        ArrayList<Integer> input = new ArrayList<>(
+                        List.of(4, 1, 2, 0, 3, 9, 5, 10));
+        System.out.print(input + " -----> ");
+        scaleByK(input);
+    } 
+	
+    /* Taking advantage of iterating backwards in the list allows for duplicates to be placed at the 
+     * current position, shifting the original and each placed duplicate number to the right to make 
+     * room for the new duplicate taking its place while also keeping track of the position in the 
+     * loop. Ready to go to next(left) position after the duplicates have been added. Note that k in 
+     * the nested loop represents the number of times a number should be appended. Because the number 
+     * already exist in the list, it should be appended k-1 times. 
+     */
+    public static void scaleByK(ArrayList<Integer> numberList) {
+        for( int i = numberList.size()-1; i >= 0; i-- ) {
+            int k = numberList.get(i);
+            if ( k > 0 ) { // is k (num at current pos) greater than 0?
+                for ( int j = 0; j < k-1; j++ ) {
+                    numberList.add(i, k); // yes? add k: k-1 times 
+                }
+            } else {
+                numberList.remove(numberList.get(i)); // no? delete k 
+            }
+        }
+        System.out.println(numberList);
+    }
+}
