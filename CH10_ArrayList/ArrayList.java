@@ -113,3 +113,32 @@ public class RemoveEvenLength {
         System.out.println(list);
     }
 }
+
+/**
+ * Exercise 4
+ *
+ * Write a method called doubleList that takes an ArrayList of strings as a
+ * parameter and replaces every string with two of that same string. 
+ *
+ * @author Wali Morris 
+ * @since 04/20/2020
+ */
+
+import java.util.*;
+
+public class DoubleList {
+    public static void main(String[] args) {
+        ArrayList<String> input = new ArrayList<>(
+                        List.of("How", "are", "you", "today"));
+        doubleList(input);
+    }
+
+    public static void doubleList(ArrayList<String> list) {
+        for (int i = 0; i < list.size(); i+=2 ) {
+            String clone = list.get(i);
+            /* adds the current cloned String to next position, then skips one pos */
+            list.add(i+1, clone);
+        }
+        System.out.println(list);
+    }
+}
