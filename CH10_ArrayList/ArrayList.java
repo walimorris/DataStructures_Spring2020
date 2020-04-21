@@ -258,10 +258,13 @@ public class RemoveDuplicates {
      * pointer moves to the next position to the left and repeats this process.
      */
     public static void removeDuplicates(ArrayList<String> list) {
-        if ( list.size() == 0 ) { System.out.println(list); };
-        for (int i = list.size()-1; i > 0; i-- ) {
-            if ( list.get(i-1).equals(list.get(i)) ) {
-                list.remove(list.get(i-1));
+        if ( list.size() == 0 ) {
+            System.out.println(list);
+        } else {
+            for (int i = list.size()-1; i > 0; i-- ) {
+                if ( list.get(i-1).equals(list.get(i)) ) {
+                    list.remove(list.get(i-1));
+                }
             }
         }
         System.out.println(list);
