@@ -270,3 +270,49 @@ public class RemoveDuplicates {
         System.out.println(list);
     }
 }
+
+/**
+ * Exercise 8 
+ *
+ * Write a method called removeZeroes that takes as a parameter an ArrayList of 
+ * integers and eliminates any occurrances of the number 0 from the list
+ *
+ * Note: This uses the ArrayList indexOf() method although there are numerous 
+ * different solutions 
+ *
+ * @author Wali Morris 
+ * @since 04/21/2020
+ */
+
+import java.util.*;
+
+public class RemoveZeroes {
+    public static void main(String[] args) {
+        ArrayList<Integer> input1 = new ArrayList<>(
+                        List.of(0, 7, 2, 0, 0, 4, 0));
+        ArrayList<Integer> input2 = new ArrayList<>(
+                        List.of(1, 7, 2, 3, 5, 4, 6));
+        ArrayList<Integer> input3 = new ArrayList<>();
+        System.out.print(input1 + " -----> ");
+        removeZeroes(input1);
+        System.out.print(input2 + " -----> ");
+        removeZeroes(input2);
+        System.out.print(input3 + " -----> ");
+        removeZeroes(input3);
+    }
+	
+    public static void removeZeroes(ArrayList<Integer> list) {
+        if( !(list.contains(0))) {
+            // prints lists that do not contain a 0 as is, including empty lists
+            System.out.println(list);
+        } else {
+            /* while a list contains a 0, remove the first instance of 0. Does not need 
+             * to iterate the entire list. Stops and prints the list once there are no 
+             * longer any 0's */
+            while ( list.contains(0) ) {
+                list.remove(list.indexOf(0));
+            }
+            System.out.println(list);
+        }
+    }
+}
