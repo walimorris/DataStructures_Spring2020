@@ -316,3 +316,37 @@ public class RemoveZeroes {
         }
     }
 }
+
+/**
+ * Write a method called rangeBetweenZeroes that takes as a parameter an ArrayList
+ * of integers and returns the number of indexes apart the two farthest occurances
+ * of the number 0 are
+ *
+ * NOTE: This method is inclusive of the index of each 0, that is, each instance of 
+ * zero corresponds to an index and we should count that index as a distance from 
+ * the next 0 and also count the last instance of 0
+ *
+ * @author Wali Morris 
+ * @since 04/21/2020
+ */
+
+import java.util.*;
+
+public class RangeBetweenZeroes {
+    public static void main(String[] args) {
+        ArrayList<Integer> input = new ArrayList<>(
+                        List.of(7, 2, 0, 0, 4, 0, 9, 0, 6, 4, 8));
+        int output = rangeBetweenZeroes(input);
+        System.out.println("Range between zeroes: " + output);
+    }
+
+    /* if the first index of zero equals the last index of zero we know this index refers
+     * to the same instance of 0 and therefore only 1 zero in the list. In the instance of 
+     * multiple 0s we return the last index - first index + 1(to account for the first instance)
+     */
+    public static int rangeBetweenZeroes(ArrayList<Integer> list) {
+        if ( !(list.contains(0))) { return 0; }
+        else if ( list.indexOf(0) == list.lastIndexOf(0)) { return 1; }
+        else return list.lastIndexOf(0) - list.indexOf(0) + 1;
+    }
+}
