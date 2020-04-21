@@ -228,6 +228,8 @@ public class MinToFront {
 }
 
 /**
+ * Exercise 7 
+ *
  * Write a method called removeDuplicates that takes as a parameter a sorted 
  * ArrayList of strings and eliminates any duplicates from the list 
  *
