@@ -186,3 +186,43 @@ public class ScaleByK {
         System.out.println(numberList);
     }
 }
+
+/**
+ * Exercise 6
+ *
+ * Write a method called minToFront that takes an ArrayList of integers as a 
+ * parameter and moves the minimum value in the list to the front, otherwise 
+ * preserving the order of the elements
+ *
+ * NOTE: Does this method assume all integers are unique, if not what is the 
+ * case for minimum values that are in the list multiple times?  
+ *
+ * @author Wali Morris 
+ * @since 04/21/2020
+ */
+
+import java.util.*;
+
+public class MinToFront {
+    public static void main(String[] args) {
+        ArrayList<Integer> input = new ArrayList<>(
+                        List.of(3, 8, 92, 4, 2, 17, 9, 5, 11, 0, -3));
+        System.out.print(input + " -----> ");
+        minToFront(input);
+    }
+
+    public static void minToFront(ArrayList<Integer> list) {
+        // list(0) begins as minimum integer until a smaller value is found    
+        int min = list.get(0), i = 0, index = 0;
+        for ( Integer num : list ) {
+            if ( num < min ) { // num smaller than min?
+                min = num; // yes, num becomes min
+                index = i; // record index of min 
+            }
+            i++; // go to next
+        }
+        list.remove(index); // remove min at its index from list 
+        list.add(0, min); // append min integer to front 
+        System.out.println(list);
+    }
+}
