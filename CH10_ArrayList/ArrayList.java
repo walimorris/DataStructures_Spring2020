@@ -226,3 +226,42 @@ public class MinToFront {
         System.out.println(list);
     }
 }
+
+/**
+ * Write a method called removeDuplicates that takes as a parameter a sorted 
+ * ArrayList of strings and eliminates any duplicates from the list 
+ *
+ * Values will be sorted and all duplicates will be grouped together
+ *
+ * Assume that the ArrayList contains only String values
+ *
+ * @author Wali Morris 
+ * @since 04/21/2020
+ */
+
+import java.util.*;
+
+public class RemoveDuplicates {
+    public static void main(String[] args) {
+        ArrayList<String> input = new ArrayList<>(
+                        List.of("be", "be", "is", "not", "or", "question",
+                                "that", "the", "to", "to"));
+        System.out.print(input + " -----> ");
+        removeDuplicates(input);
+    }
+
+    /* Iterating from the last String object in the list allows our loop pointer 
+     * to keep it's place while deleting the duplicate, if there is one, in front 
+     * ( to the left) of its current String object. After that delection, the loop 
+     * pointer moves to the next position to the left and repeats this process.
+     */
+    public static void removeDuplicates(ArrayList<String> list) {
+        if ( list.size() == 0 ) { System.out.println(list); };
+        for (int i = list.size()-1; i > 0; i-- ) {
+            if ( list.get(i-1).equals(list.get(i)) ) {
+                list.remove(list.get(i-1));
+            }
+        }
+        System.out.println(list);
+    }
+}
