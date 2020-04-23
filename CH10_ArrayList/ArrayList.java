@@ -352,3 +352,47 @@ public class RangeBetweenZeroes {
         else return list.lastIndexOf(0) - list.indexOf(0) + 1;
     }
 }
+
+/**
+ * Exercise 10 
+ *
+ * Write a method called removeInRange that accepts three parameters, an ArrayList of 
+ * strings, a beginning string, and an ending string and removes from the list any of 
+ * strings that fall alphabetically between the start and end strings
+ *
+ * You may assume that the start string alphabetically precedes the ending string
+ *
+ * @author Wali Morris 
+ * @since 04/22/2020
+ */
+
+import java.util.*;
+
+public class RemoveInRange {
+    public static void main(String[] args) {
+        ArrayList<String> inputStrings = new ArrayList<>(
+                        List.of("to", "be", "or", "not", "to", "be",
+                                "that", "is", "the", "question"));
+        String begin = "free", end = "rich";
+        System.out.print(inputStrings + " -----> ");
+        removeInRange(inputStrings, begin, end);
+    }
+
+    /* This method initializes the beginning and end strings' first characters as the range 
+     * in which to compare all other strings in the ArrayList. Taking advantage of char type 
+     * which has increasing integer value. In this case, if any strings in the ArrayList has 
+     * a first letter with a value between the beginning and end strings, it'll be removed. 
+     */
+    public static void removeInRange(ArrayList<String> list, String beg, String end) {
+        /* all String types are converted to lowercase */
+        char firstRange = Character.toLowerCase(beg.charAt(0));
+        char lastRange = Character.toLowerCase(end.charAt(0));
+        for ( int i = list.size() -1; i >= 0; i-- ) {
+            char current = Character.toLowerCase(list.get(i).charAt(0));
+            if ( current > firstRange && current < lastRange ) {
+                list.remove(list.get(i));
+            }
+        }
+        System.out.println(list);
+    }
+}
