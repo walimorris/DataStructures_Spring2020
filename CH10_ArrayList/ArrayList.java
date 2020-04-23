@@ -439,3 +439,36 @@ public class Stutter {
         }
     }
 }
+
+/**
+ * Exercise 12 
+ *
+ * Write a method called markLength4 that accepts an ArrayList of strings as a parameter 
+ * and that places a string of four asterisks "****" in front of every string of length 4
+ *
+ * @author Wali Morris 
+ * @since 04/23/2020
+ */
+
+import java.util.*;
+
+public class MarkLength4 {
+    public static void main(String[] args) {
+        ArrayList<String> input = new ArrayList<>(
+                        List.of("this", "is", "lots", "of", "fun",
+                                "for", "Java", "programmers"));
+        System.out.print(input + " ----- > ");
+        markLength4(input);
+    }
+
+    public static void markLength4(ArrayList<String> list) {
+        for (int i = 0; i < list.size(); i++ ) {
+            if ( list.get(i).length() == 4 ) { // string is 4 characters long? 
+                list.add(i+1, list.get(i)); // push it to right 
+                list.set(i, '"' + "****" + '"'); // add 4 asterisks in it's old index
+                i++; // skip to next string in list 
+            }
+        }
+        System.out.println(list);
+    }
+}
