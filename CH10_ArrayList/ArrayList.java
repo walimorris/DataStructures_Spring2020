@@ -396,3 +396,46 @@ public class RemoveInRange {
         System.out.println(list);
     }
 }
+
+/**
+ * Exercise 11 
+ *
+ * Write a method called stutter that accepts an ArrayLIst of strings and an integer k as 
+ * parameters and replaces every string with k copies of that string
+ *
+ * NOTE: In this program if k is 0 or negative, ArrayLists are cleared 
+ *
+ * @author Wali Morris 
+ * @since 04/23/2020
+ */
+
+import java.util.*;
+
+public class Stutter {
+    public static void main(String[] args) {
+        ArrayList<String> input = new ArrayList<>(
+                        List.of("how", "are", "you"));
+        ArrayList<String> input2 = new ArrayList<>(
+                List.of("welcome", "aboard", "captain"));
+        int x = 4, y = 0;
+        System.out.print(input + " -----> ");
+        stutter(input, x);
+        System.out.print(input2 + " -----> ");
+        stutter(input2, y);
+    }
+	
+    public static void stutter(ArrayList<String> list, int k) {
+        if ( k <= 0 ) {
+            list.clear();// k is 0 or less, clear list 
+            System.out.println(list);
+        } else {
+            for (int i = 0; i < list.size(); i += k ) {
+                String duplicate = list.get(i); // record the string 
+                for ( int j = 0; j < k-1; j++ ) { // append duplicate k-1 times 
+                    list.add(i+1, duplicate);
+                }
+            }
+            System.out.println(list);
+        }
+    }
+}
