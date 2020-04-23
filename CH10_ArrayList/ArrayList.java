@@ -318,6 +318,8 @@ public class RemoveZeroes {
 }
 
 /**
+ * Exercise 9 
+ *
  * Write a method called rangeBetweenZeroes that takes as a parameter an ArrayList
  * of integers and returns the number of indexes apart the two farthest occurances
  * of the number 0 are
