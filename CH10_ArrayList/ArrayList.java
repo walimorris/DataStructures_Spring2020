@@ -563,3 +563,51 @@ public class RemoveShorterString {
         }
     }
 }
+
+/**
+ * Exercise 15 
+ *
+ * Write a method called filterRange that accepts an ArrayList of Integers and two integer 
+ * values min and max as parameters and removes all elements whose values are in the range 
+ * min through max ( inclusive )
+ *
+ * If no elements in the range min-max are found in the list, or if the list is initially 
+ * empty, the list's contents are unchanged
+ *
+ * NOTE: This exercise asks to remove values in the range from min-max; if a value in the 
+ * list is between the two numbers it is deleted but it does not mean the values at the 
+ * indexes min-max will be deleted
+ *
+ * @author Wali Morris 
+ * @since 04/24/2020
+ */
+
+import java.util.*;
+
+public class FilterRange {
+    public static void main(String[] args) {
+        ArrayList<Integer> input = new ArrayList<>(
+                        List.of(4, 7, 9, 2, 7, 7, 5, 3, 5, 1,
+                                7, 8, 6, 7));
+        int xMin = 5, xMax = 7;
+        System.out.print(input + " -----> ");
+        filterRange(input, xMin, xMax);
+    }
+
+    /* Takes an ArrayList of integers, a low number(min) and high number(max) and 
+     * deletes any integer in the list that is between min and max (inclusive), 
+     * begins at the last value in the list
+     */
+    public static void filterRange(ArrayList<Integer> list, int min, int max) {
+        if ( list.size() == 0 ) {
+            System.out.println(list); // empty list, print list to output  
+        } else {
+            for (int i = list.size() - 1; i >= 0; i--) { // begin at last element in list
+                if ( list.get(i) >= min && list.get(i) <= max ) { // element is between min & max?
+                    list.remove(list.get(i)); // delete element 
+                }
+            }
+            System.out.println(list);
+        }
+    }
+}
