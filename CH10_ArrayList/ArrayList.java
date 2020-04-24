@@ -472,3 +472,39 @@ public class MarkLength4 {
         System.out.println(list);
     }
 }
+
+/**
+ * Exercise 13 
+ *
+ * Write a method called reverse3 that accepts an ArrayList of integer values as a parameter 
+ * and reverses each successive sequence of three values in the list
+ *
+ * If the list has extra values that are not part of a sequence of three, those values are 
+ * unchanged 
+ *
+ * @author Wali Morris 
+ * @since 04/23/2020
+ */
+
+import java.util.*;
+
+public class Reverse3 {
+    public static void main(String[] args) {
+        ArrayList<Integer> input = new ArrayList<>(
+                        List.of(3, 8, 19, 43, 7, 26, 19, -8));
+        System.out.print(input + " -----> ");
+        reverse3(input);
+    }
+
+    public static void reverse3(ArrayList<Integer> list) {
+        for (int i = 0; i < list.size()-1; i++) {
+            if ( list.get(i) < list.get(i+1) && list.get(i+1) < list.get(i+2) ) {
+                int temp = list.get(i);
+                list.set(i, list.get(i+2));
+                list.set(i+2, temp);
+                i += 2;
+            }
+        }
+        System.out.println(list);
+    }
+}
