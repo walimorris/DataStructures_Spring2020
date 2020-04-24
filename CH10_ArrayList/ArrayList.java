@@ -611,3 +611,63 @@ public class FilterRange {
         }
     }
 }
+
+/**
+ * Exercise 16 
+ *
+ * Write a method called clump that accepts an ArrayList of strings as a parameter and replaces
+ * each pair of strings with a single string that consists of the two original strings in 
+ * parenthesis seperated by a space
+ *
+ * If the list is of odd length, the final element is unchanged
+ *
+ * @author Wali Morris 
+ * @since 04/24/2020
+ */
+
+import java.util.*;
+
+public class Clump {
+    public static void main(String[] args) {
+        ArrayList<String> input1 = new ArrayList<>( // odd length list
+                        List.of("four", "score", "and", "seven", "years",
+                                "ago", "our"));
+        ArrayList<String> input2 = new ArrayList<>( // even length list 
+                        List.of("four", "score", "and", "seven", "years",
+                                "ago"));
+        ArrayList<String> input3 = new ArrayList<>(); // list with 1 String
+        input3.add("four");
+        ArrayList<String> input4 = new ArrayList<>( // list with 2 strings
+                        List.of("four", "score"));
+
+        System.out.print(input1 + " -----> ");
+        clump(input1);
+        System.out.print(input2 + " -----> ");
+        clump(input2);
+        System.out.print(input3 + " -----> ");
+        clump(input3);
+        System.out.print(input4 + " -----> ");
+        clump(input4);
+    }
+    
+    /* This method iterates a list and combines two strings by concatenating element at 
+     * list(i) and element at list(i+1), sets the combined element at list(i) and deletes 
+     * the extra element at list(i+1). We know combining elements and reaching the end of 
+     * the list will only take list/2 iterations of the loop. Prints the ilist of combined 
+     * elements around parentheses
+     */
+    public static void clump(ArrayList<String> list) {
+        if (list.size() <= 1) {
+            System.out.println(list); // print list as is if it contains 1 string or less 
+        } else {
+            for ( int i = 0; i < list.size() / 2+1; i++ ) {
+                String combinedStr = "(";
+                String first = list.get(i), second = list.get(i+1);
+                combinedStr += first + " " +  second + ")"; // concatenate i and i+1
+                list.set(i, combinedStr); // set new combined String at list(i)
+                list.remove(i+1); // remove the access element at list(i+1)     
+            }
+            System.out.println(list);
+        }
+    }
+}
