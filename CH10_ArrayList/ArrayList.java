@@ -516,3 +516,50 @@ public class Reverse3 {
     }
 }
 
+/**
+ * Exercise 14 
+ *
+ * Write a method called removeShorterString that accepts an ArrayList of strings as a parameter and 
+ * removes from each pair of values the shorter string in the pair
+ *
+ * If the list is of odd length the final element is unchanged
+ *
+ * Note: If two elements are of equal length, the second element is removed
+ *
+ * @author Wali Morris 
+ * @since 04/24/2020 
+ */
+
+import java.util.*;
+
+public class RemoveShorterString {
+    public static void main(String[] args) {
+        ArrayList<String> input1 = new ArrayList<>(
+                        List.of("four", "score", "and", "seven", "years",
+                                "ago", "our"));
+        ArrayList<String> input2 = new ArrayList<>(
+                        List.of("while", "loops", "are", "useful"));
+        System.out.print(input1 + " -----> ");
+        removeShorterString(input1);
+        System.out.print(input2 + " -----> ");
+        removeShorterString(input2);
+    }
+    /* We know based on the size on an ArrayList that N/2 elements will be removed. So 
+     * until this condition is met, continue to compare elements and delete the shorter
+     * element. If two elements are of equal length, the second element is deleted. 
+     */
+    public static void removeShorterString(ArrayList<String> list) {
+        if ( list.size() == 0 ) {
+            System.out.println(list);
+        } else {
+            for ( int i = 0; i < list.size() / 2 + 1; i++ ) {
+                if ( list.get(i).length() < list.get(i+1).length() ) {
+                    list.remove(list.get(i));
+                } else {
+                    list.remove(list.get(i+1));
+                }
+            }
+            System.out.println(list);
+        }
+    }
+}
