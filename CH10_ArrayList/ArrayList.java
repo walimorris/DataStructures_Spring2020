@@ -482,6 +482,11 @@ public class MarkLength4 {
  * If the list has extra values that are not part of a sequence of three, those values are 
  * unchanged 
  *
+ * Note: consider the loop for the reverse3 method: the loop will increment only one position, 
+ * so if a sequence of three have been flipped and the loop points to the next value after the 
+ * flip; this next value plus the sequence of three could possibly fill the case of yet another
+ * flip
+ *
  * @author Wali Morris 
  * @since 04/23/2020
  */
@@ -491,20 +496,23 @@ import java.util.*;
 public class Reverse3 {
     public static void main(String[] args) {
         ArrayList<Integer> input = new ArrayList<>(
-                        List.of(3, 8, 19, 43, 7, 26, 19, -8));
+                        List.of(3, 9, 2, 43, 7, 26, 29, -8, 10, 11));
         System.out.print(input + " -----> ");
         reverse3(input);
     }
 
     public static void reverse3(ArrayList<Integer> list) {
         for (int i = 0; i < list.size()-1; i++) {
-            if ( list.get(i) < list.get(i+1) && list.get(i+1) < list.get(i+2) ) {
-                int temp = list.get(i);
-                list.set(i, list.get(i+2));
-                list.set(i+2, temp);
-                i += 2;
+            /* for every iteration, check the current integer value and the next two, take
+             * into consideration that the middle value in a sequence is unchanged
+             */
+            if ( list.get(i) < list.get(i+1) && list.get(i+1) < list.get(i+2) ) { // is there a sequence?  
+                int temp = list.get(i); // store the value of the first integer in sequence
+                list.set(i, list.get(i+2)); // set the first value as the third value in sequence
+                list.set(i+2, temp); // set the third value as the first 
             }
         }
         System.out.println(list);
     }
 }
+
