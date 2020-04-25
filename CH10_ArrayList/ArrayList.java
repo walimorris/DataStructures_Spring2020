@@ -721,3 +721,40 @@ public class InterLeave {
         }
     }
 }
+
+/**
+ * Exercise 18 
+ *
+ * Write a method called mirror that accepts an ArrayList of strings as a parameter and repoduces a 
+ * mirrored copy of the list as output, with the original values followed by those same values in the 
+ * opposite order. 
+ *
+ * @author Wali Morris 
+ * @since 04/24/2020
+ */
+
+import java.util.*;
+
+public class Mirror {
+    public static void main(String[] args) {
+        ArrayList<String> input = new ArrayList<>(
+                        List.of("a", "b", "c", "d"));
+        System.out.print(input + " -----> ");
+        mirror(input);
+    }
+
+    /* In this case beginning at the last object in the list and moving left until reaching 
+     * the first object in the list allows this method to take the current object and append
+     * to the end of the list, moving left along until all objects are mirrored
+     */
+    public static void mirror(ArrayList<String> list) {
+        if ( list.size() == 0 ) {
+            System.out.println(list);
+        } else {
+            for (int i = list.size() - 1; i >= 0; i--) {
+                list.add(list.get(i));
+            }
+            System.out.println(list);
+        }
+    }
+}
