@@ -105,8 +105,7 @@ public class RemoveEvenLength {
 
     public static void removeEvenLength(ArrayList<String> list) {
         for ( int i = list.size() - 1; i >= 0; i-- ) { // begin at last word
-            String word = list.get(i);
-            if ( word.length() % 2 == 0 ) {
+            if ( list.get(i).length() % 2 == 0 ) {
                 list.remove(i); // word is even, delete it  
             }
         }
