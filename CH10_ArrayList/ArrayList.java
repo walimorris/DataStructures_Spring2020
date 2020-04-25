@@ -671,3 +671,53 @@ public class Clump {
         }
     }
 }
+
+/**
+ * Exercise 17 
+ *
+ * Write a method called interleave that accepts two ArrayLists of integers a1 and a2 as parameters 
+ * and inserts the elements of a2 into a1 at alternating indexes
+ *
+ * If the lists are of unequal length, the remaining elements of the longer list are left at the end 
+ * of a1
+ *
+ * @author Wal Morris 
+ * @since 04/25/2020
+ */
+
+import java.util.*;
+
+public class InterLeave {
+    public static void main(String[] args) {
+        ArrayList<Integer> input1 = new ArrayList<>(
+                        List.of(10, 20, 20));
+        ArrayList<Integer> input2 = new ArrayList<>(
+                        List.of(4, 5, 6, 7, 8));
+        System.out.print(input1 + " + " + input2 + " -----> ");
+        interleave(input1, input2);
+    }
+
+    public static void interleave(ArrayList<Integer> a1, ArrayList<Integer> a2) {
+        // precondition: if any list is empty, print the combined list with non empty list's contents
+        if ( a1.size() == 0 ) {
+            System.out.println(a2);
+        } else if (a2.size() == 0 ) {
+            System.out.println(a1);
+        } else if (a1.size() == 0 && a2.size() == 0) { // if both list are empty, send a message
+            System.out.println("Both lists are empty");
+        } else {
+            ArrayList<Integer> a3 = new ArrayList<>();
+            while ( !(a1.size() == 0 && a2.size() == 0) ) { // while there are still elements in either list
+                if ( !(a1.size() == 0) ) { // checks if a1 is empty
+                    a3.add(a1.get(0)); // not empty? add the first element in a1 to a3
+                    a1.remove(a1.get(0)); // remove first element in a1 
+                }
+                if ( !(a2.size() == 0) ) { // checks if a2 is empty
+                    a3.add(a2.get(0)); // not empty? add the first element in a2 to a3 
+                    a2.remove(a2.get(0)); // remove first element in a2
+                }
+            }
+            System.out.println(a3);
+        }
+    }
+}
