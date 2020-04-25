@@ -593,7 +593,7 @@ public class FilterRange {
         System.out.print(input + " -----> ");
         filterRange(input, xMin, xMax);
     }
-
+    
     /* Takes an ArrayList of integers, a low number(min) and high number(max) and 
      * deletes any integer in the list that is between min and max (inclusive), 
      * begins at the last value in the list
@@ -603,7 +603,8 @@ public class FilterRange {
             System.out.println(list); // empty list, print list to output  
         } else {
             for (int i = list.size() - 1; i >= 0; i--) { // begin at last element in list
-                if ( list.get(i) >= min && list.get(i) <= max ) { // element is between min & max?
+                if ( list.get(i).compareTo(min) >= 0 && list.get(i).compareTo(max) <= 0 ) { 
+                    // element is between min and max?  
                     list.remove(list.get(i)); // delete element 
                 }
             }
