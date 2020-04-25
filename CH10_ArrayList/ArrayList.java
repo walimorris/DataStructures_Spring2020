@@ -698,13 +698,13 @@ public class InterLeave {
     }
 
     public static void interleave(ArrayList<Integer> a1, ArrayList<Integer> a2) {
-        // precondition: if any list is empty, print the combined list with non empty list's contents
-        if ( a1.size() == 0 ) {
+        // conditions: if any list is empty, print the combined list with non empty list's contents
+        if ( a1.size() == 0 && a2.size() == 0 ) {
+            System.out.println("Lists are empty!"); // if both lists are empty send a message 
+        } else if ( a1.size() == 0 ) {
             System.out.println(a2);
         } else if (a2.size() == 0 ) {
             System.out.println(a1);
-        } else if (a1.size() == 0 && a2.size() == 0) { // if both list are empty, send a message
-            System.out.println("Both lists are empty");
         } else {
             ArrayList<Integer> a3 = new ArrayList<>();
             while ( !(a1.size() == 0 && a2.size() == 0) ) { // while there are still elements in either list
