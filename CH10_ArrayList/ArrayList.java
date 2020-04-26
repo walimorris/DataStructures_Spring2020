@@ -758,3 +758,112 @@ public class Mirror {
         }
     }
 }
+
+/**
+ * Modify The Point class from Chapter 8 so that it defines a natural ordering by implementing the 
+ * Comparable interface
+ *
+ * Compare the Points by y-major order; that is, points with smaller y-coordinate values should come
+ * before those with higher y-coordinate values
+ *
+ * Break ties by comparing x-coordinate values  
+ *
+ * @author Wali Morris
+ * @since 04/26/2020
+ */
+
+import java.util.*;
+
+public class Point implements Comparable<Point> {
+    private int x;
+    private int y;
+
+    /**
+     *  sets Point x, y - coordinates to (0, 0) 
+     *  */
+    public Point() {
+        this(0, 0);
+    }
+
+    /**
+     * @param x : Point's x - coordinate
+     * @param y : Point's y - coordinate
+     */
+    public Point(int x, int y) {
+        setLocation(x, y);
+    }
+
+     /** 
+     * @return The distance from zero origin
+     */
+    public double distanceFromOrigin() {
+        return Math.sqrt(x * x + y * y);
+    }
+
+    /**
+     * @return x - coordinate
+     */
+    public int getX() {
+        return this.x;
+    }
+
+    /**
+     * @return y - coordinate 
+     */
+    public int getY() {
+        return this.y;
+    }
+
+    /**
+     * @param x : Sets Point's x - coordinate
+     * @param y : Sets Point's y - coordinate 
+     */
+    public void setLocation(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    @Override
+    public String toString() {
+        return "(" + this.x + ", " + this.y + ")";
+    }
+
+    @Override
+    public int compareTo(Point other) {
+	/* If y - coordinates of both Points are equal compare x -ccordinates */ 
+        if ( this.y == other.y ) { 
+            return this.x - other.x; // if both x and y coordinates are equal method returns 0
+        } else {
+            /*  tests if y-coordinate is greater, lesser y-coordinate represents a "lesser" Point */ 
+            return this.y - other.y;  
+        }
+    }
+
+     /**
+     * @param dx : units to shift x - coordinate 
+     * @param dy : units to shift y - coordinate 
+     */
+    public void translate(int dx, int dy) {
+        setLocation(this.x + dx, this.y + dy);
+    }
+}
+
+/**
+ * A short example sorting Point Objects 
+ * 
+ * @author Wali Morris 
+ * @since 04/26/2020
+ */
+
+import java.util.*;
+
+public class PointMain {
+    public static void main(String[] Args) {
+        ArrayList<Point> points = new ArrayList<>(
+                        List.of(new Point(1, 2), new Point(5, 1),
+                                new Point(4, 3), new Point(6, 6)));
+        System.out.println("Points: " + points);
+        Collections.sort(points);
+        System.out.println("Sorted Points: " + points);
+    }
+}
