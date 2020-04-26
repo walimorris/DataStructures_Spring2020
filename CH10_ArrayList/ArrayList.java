@@ -760,6 +760,8 @@ public class Mirror {
 }
 
 /**
+ * Exercise 19 
+ * 
  * Modify The Point class from Chapter 8 so that it defines a natural ordering by implementing the 
  * Comparable interface
  *
