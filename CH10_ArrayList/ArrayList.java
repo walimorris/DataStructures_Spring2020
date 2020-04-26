@@ -830,9 +830,11 @@ public class Point implements Comparable<Point> {
 
     @Override
     public int compareTo(Point other) {
-	/* If y - coordinates of both Points are equal compare x -ccordinates */ 
+	/* If y - coordinates of both Points are equal compare x -coordinates */ 
         if ( this.y == other.y ) { 
-            return this.x - other.x; // if both x and y coordinates are equal method returns 0
+	    /* if both x and y coordinates are equal method returns 0, else Point with smaller
+	     * x-coordinate is smaller point */ 
+            return this.x - other.x; 
         } else {
             /*  tests if y-coordinate is greater, lesser y-coordinate represents a "lesser" Point */ 
             return this.y - other.y;  
@@ -858,7 +860,7 @@ public class Point implements Comparable<Point> {
 import java.util.*;
 
 public class PointMain {
-    public static void main(String[] Args) {
+    public static void main(String[] args) {
         ArrayList<Point> points = new ArrayList<>(
                         List.of(new Point(1, 2), new Point(5, 1),
                                 new Point(4, 3), new Point(6, 6)));
