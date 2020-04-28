@@ -185,3 +185,50 @@ public class RemoveInRange {
         return list;
     }
 }
+
+**
+ * Exercise 4
+ *
+ * Write a method called partition that accepts a list of integers and an integer value E as its 
+ * parameter and rearranges (paritions) the list so that all the elements with values less than 
+ * E occur before all elements with values greater than E
+ *
+ * The exact order of the elements is unimportant, so long as all elements less than E appear 
+ * before all elements greater than E
+ *
+ * Note: You can assume that the list contains no duplicates and does not contain the value E
+ *
+ * @author Wali Morris 
+ * @since 04/28/2020
+ */
+
+import java.util.*;
+
+public class Partition {
+    public static void main(String[] args) {
+        List<Integer> input = new LinkedList<>(
+                        List.of(15, 1, 6, 12, -3, 4, 8, 21,
+                                2, 30, -1, 9));
+        System.out.print(input + " -> ");
+        List<Integer> output = partition(input, 5);
+        System.out.println(output);
+    }
+	
+    /* Iterates list and removes all elements greater than E and stores this element into 
+     * another list2. Once iteration completes, appends all elements greater than E to the 
+     * original list
+     */
+    public static List<Integer> partition(List<Integer> list, int E) {
+        List<Integer> list2 = new LinkedList<>();
+        Iterator<Integer> iter = list.iterator();
+        while ( iter.hasNext() ) {
+            int current = iter.next();
+            if ( current > E ) {
+                iter.remove();
+                list2.add(current);
+            }
+        }
+        list.addAll(list2);
+        return list;
+    }
+}
