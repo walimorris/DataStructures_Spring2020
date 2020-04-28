@@ -136,3 +136,51 @@ public class Alternate {
         return numbers;
     }
 }
+
+/**
+ * Exercise 3 
+ *
+ * Write a method called removeInRange that accepts four parameters: a LinkedList, an element value
+ * a starting index, and an ending index
+ *
+ * The method's bahavior is to remove all occurrences of the given element that appears in the list
+ * between the starting index (inclusive) and the ending index (exclusive)
+ *
+ * Other values and occurrences of the given value that appear outside the given index range are
+ * not affected. 
+ *
+ * @author Wali Morris 
+ * @since 04/28/2020
+ */
+
+import java.util.*;
+
+public class RemoveInRange {
+    public static void main(String[] args) {
+        List<Integer> input1 = new LinkedList<>(
+                        List.of(0, 0, 2, 0, 4, 0, 6, 0, 8, 0, 10, 0,
+                                12, 0, 14, 0, 16));
+        System.out.print(input1 + " -> ");
+        List<Integer> output1 = removeInRange(input1, 0, 5, 13);
+        System.out.println(output1);
+    }
+	
+    public static List<Integer> removeInRange(List<Integer> list, int element,
+                    int start, int end) {
+        if ( list.isEmpty() ) {
+            return list;
+        }
+        int count = 0; // reports the index
+        Iterator<Integer> iter = list.iterator();
+        while ( iter.hasNext() && count < end ) { // until end index is reached(exclusive) 
+            int current = iter.next(); // get current value
+            /* ignore any values before start index, once count reaches start index: if 
+             * value is the element being searched than delete it */
+            if ( count >= start && current == element ) {
+                iter.remove();
+            }
+            count++;
+        }
+        return list;
+    }
+}
