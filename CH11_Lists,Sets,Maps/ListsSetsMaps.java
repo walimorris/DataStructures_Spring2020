@@ -53,18 +53,17 @@ public class ModifiedSieve {
         while ( !numbers.isEmpty() ) { 
 	    int front = numbers.remove(0); // get front first element in numbers list	    
             primes.add(front); 
+	    if ( front == Math.sqrt(max)) { // element equals square root of max?
+		    // add rest of numbers list to primes and return primes
+		    Collections.copy(primes, numbers); 
+		    return primes;
+	    }
 	    // remove multiples of this element from rest of numbers list
 	    Iterator<Integer> iter = numbers.iterator(); 
 	    while ( iter.hasNext() ) { 
-                int current = iter.next();
-	        if ( current == Math.sqrt(front)) { // element equals square root of front element?
-		    // add rest of numbers list to primes and return primes
-		    Collections.copy(primes, numbers); 
-		    return primes; 
-		} else { 
-		    if ( current % front == 0) { // or remove element if its a multiple of front
-		        iter.remove();
-		    }
+                int current = iter.next();  
+		if ( current % front == 0) { // remove element if its a multiple of front
+		    iter.remove();
 		}
 	    }
 	}
