@@ -167,7 +167,8 @@ public class RemoveInRange {
 	
     public static List<Integer> removeInRange(List<Integer> list, int element,
                     int start, int end) {
-        if ( list.isEmpty() ) {
+       
+	if ( list.isEmpty() ) {
             return list;
         }
         int count = 0; // reports the index
