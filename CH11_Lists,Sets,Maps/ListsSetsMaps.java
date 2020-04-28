@@ -55,7 +55,7 @@ public class ModifiedSieve {
             primes.add(front); 
 	    if ( front == Math.sqrt(max)) { // element equals square root of max?
 		    // add rest of numbers list to primes and return primes
-		    Collections.copy(primes, numbers); 
+		    primes.addAll(numbers); 
 		    return primes;
 	    }
 	    // remove multiples of this element from rest of numbers list
