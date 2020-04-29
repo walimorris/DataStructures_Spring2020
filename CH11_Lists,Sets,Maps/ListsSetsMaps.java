@@ -232,3 +232,41 @@ public class Partition {
         return list;
     }
 }
+
+/**
+ * Exercise 5
+ *
+ * Write a method called sortAndRemoveDuplicates that accepts a list of integers as its parameter
+ * and rearranges the list's elements into sorted ascending order, as well as removing all duplicate
+ * values from the list 
+ *
+ * Use a Set as part of your solution
+ *
+ * @author Wali Morris 
+ * @since 04/28/2020
+ */
+
+import java.util.*;
+
+public class SortAndRemoveDuplicates {
+    public static void main(String[] args) {
+        List<Integer> input = new LinkedList<>(
+                        List.of(7, 4, -9, 4, 15, 8, 27, 11,
+                                -5, 32, -9, -9));
+        System.out.print(input + " -> ");
+        List<Integer> output = sortAndRemoveDuplicates(input);
+        System.out.println(output);
+    }
+
+    public static List<Integer> sortAndRemoveDuplicates(List<Integer> list) {
+        if ( list.size() <= 0 ) {
+            throw new IllegalArgumentException("List is Empty");
+        }
+        /* Creates a Set and removes all duplicates from list */
+        Set<Integer> list2 = new HashSet<>(list);
+        /* Converts non-duplicate Set back to a list */
+        List<Integer> list3 = new LinkedList<>(list2);
+        Collections.sort(list3); // sorts list 
+        return list3;
+    }
+}
