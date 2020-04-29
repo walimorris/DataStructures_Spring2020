@@ -186,7 +186,7 @@ public class RemoveInRange {
     }
 }
 
-**
+/**
  * Exercise 4
  *
  * Write a method called partition that accepts a list of integers and an integer value E as its 
