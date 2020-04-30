@@ -345,8 +345,7 @@ public class HasOdd {
         /* In the case the parameter Set is not a TreeSet, in order to find odd numbers
          * more quickly, we'll send any elements from the parameter Set to set2 which 
          * is a TreeSet */
-        Set<Integer> set2 = new TreeSet<>();
-        set2.addAll(set);
+        Set<Integer> set2 = new TreeSet<>(set);
         for ( Integer num : set2 ) {
             if ( !(num % 2 == 0) ) {
                 return true; // found odd number
