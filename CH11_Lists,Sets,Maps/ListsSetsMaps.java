@@ -515,10 +515,7 @@ public class SymmetricSetDifference {
          * removed from each set (A and B), all the unique values from both Set A 
          * and B will be added to Set C */
         Set<Integer> tempA = new HashSet<>(A); // holds Set A to test against Set B
-        A.removeAll(B);
-        B.removeAll(tempA);
-        C.addAll(A);
-        C.addAll(B);
+        A.removeAll(B); B.removeAll(tempA); C.addAll(A); C.addAll(B);
         return C;
     }
 }
