@@ -470,3 +470,55 @@ public class RemoveEvenLength {
         return set;
     }
 }
+
+/**
+ * Exercise 11
+ *
+ * Write a mthod called symmetricSetDifference that accepts two Sets as parameters
+ * and returns a new Set containing their symmetric set difference - the set of 
+ * elements contained in either of the two sets but not in both
+ *
+ * @author Wali Morris 
+ * @since 04/30/2020
+ */
+
+import java.util.*;
+
+public class SymmetricSetDifference {
+    public static void main(String[] args) {
+        Set<Integer> input1 = new HashSet<>(
+                       List.of(1, 4, 7, 9));
+        Set<Integer> input2 = new HashSet<>(
+                       List.of(2, 4, 5, 6, 7));
+        Set<Integer> output = symmetricSetDifference(input1, input2);
+        System.out.println("Integers unique to each set: " + output);
+    }
+	
+    public static Set<Integer> symmetricSetDifference(Set<Integer> A,
+                    Set<Integer> B) {
+
+        Set<Integer> C = new HashSet<>(); // holds unique values from both sets
+        /* returns empty set C if both A and B are empty */     
+        if ( A.size() == 0 && B.size() == 0 ) {
+            return C; 
+        /* returns all values in set B if set A is empty */
+        } else if ( A.size() == 0 && !(B.size() == 0) ) { 
+            return B; 
+        } else {
+            /* returns all values in set A if set B is empty */
+            if ( !(A.size() == 0) && B.size() == 0 ) { 
+                return A; 
+            }
+        }
+        /* The next sequence of statements creates a Set (tempA) to later remove 
+         * the values in Set B that Set A also contains. Once these values are 
+         * removed from each set (A and B), all the unique values from both Set A 
+         * and B will be added to Set C */
+        Set<Integer> tempA = new HashSet<>(A); // holds Set A to test against Set B
+        A.removeAll(B);
+        B.removeAll(tempA);
+        C.addAll(A);
+        C.addAll(B);
+        return C;
+    }
+}
