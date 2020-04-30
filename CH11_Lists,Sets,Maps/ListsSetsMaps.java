@@ -426,3 +426,47 @@ public class HasOdd {
         return false; // no odd numbers found in Set
     }
 }
+
+/**
+ * Exercise 10
+ *
+ * Write a method called removeEvenLength that accepts a set of strings as a 
+ * parameter and that removes all of the strings of even length from the set
+ *
+ * @author Wali Morris 
+ * @since 04/30/2020
+ */
+
+import java.util.*;
+
+public class RemoveEvenLength {
+    public static void main(String[] args) {
+        Set<String> input = new HashSet<>();
+        input.add("to");
+        input.add("be");
+        input.add("or");
+        input.add("not");
+        input.add("too");
+        input.add("bee");
+        input.add("that");
+        input.add("is");
+        input.add("the");
+        input.add("question");
+        Set<String> output = removeEvenLength(input);
+        System.out.println(output);
+    }
+	
+    public static Set<String> removeEvenLength(Set<String> set) {
+        if ( set.size() == 0 ) {
+            throw new IllegalArgumentException("Set cannot be empty");
+        }
+        /* Using iterator object, remove strings of odd length from the set */
+        Iterator<String> iter = set.iterator();
+        while ( iter.hasNext() ) {
+            if ( !(iter.next().length() % 2 == 0) ) {
+                iter.remove();
+            }
+        }
+        return set;
+    }
+}
