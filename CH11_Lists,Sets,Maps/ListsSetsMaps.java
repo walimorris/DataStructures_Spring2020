@@ -306,6 +306,44 @@ public class CountUnique {
 }
 
 /**
+ * Exercise 7 
+ *
+ * Write a method countCommon that accepts two lists of integers as parameter
+ * and returns the number of unique integers that occur in both lists
+ *
+ * Use one or more sets as storage to help you solve this problem 
+ *
+ * @author Wali Morris 
+ * @since 04/30/2020
+ */
+
+import java.util.*;
+
+public class CountCommon {
+    public static void main(String[] args) {
+        List<Integer> input1 = new LinkedList<>(
+                        List.of(3, 7, 3, -1, 2, 3, 7, 2, 15, 15));
+        List<Integer> input2 = new LinkedList<>(
+                        List.of(-5, 15, 2, -1, 7, 15, 36));
+        int output = countCommon(input1, input2);
+        System.out.println("There are " + output + " unique integers in both lists");
+    }
+
+    public static int countCommon(List<Integer> A, List<Integer> B) {
+        /* return 0 if any list is empty */
+        if ( A.size() == 0 || B.size() == 0 ) {
+            return 0;
+        }
+        /* creates a set containing the elements of list A, then called a method to 
+         * retain only the numbers that also exists in list B. If no numbers are the
+         * same 0 is returned */
+        Set<Integer> commonSet = new HashSet<>(A);
+        commonSet.retainAll(B);
+        return commonSet.size();
+    }
+}
+
+/**
  * Exercise 8 
  * 
  * Write a method maxLength that accepts a set of strings as parameter and that returns 
