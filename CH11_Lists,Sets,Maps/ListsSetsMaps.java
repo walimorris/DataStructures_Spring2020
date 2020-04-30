@@ -310,3 +310,48 @@ public class MaxLength {
         return max; 
     } 
 }
+
+/**
+ * Exercise 9 
+ *
+ * Write a method called hasOdd that accepts a set of integers as a parameter and 
+ * returns true if the set contains at least one odd integer and false otherwise
+ *
+ * If passed an empty set the method will return false
+ *
+ * Note: This method is written so both Tree and HashSets can be utilized
+ * Utilizing a TreeSet is great because of the natural ordering, so odd 
+ * numbers will be found much quicker 
+ *
+ * @author Wali Morris
+ * @since 04/29/2020
+ */
+
+import java.util.*;
+
+public class HasOdd {
+    public static void main(String[] args) {
+        Set<Integer> input = new HashSet<>(
+                        List.of(32, 56, 66, 12, 14, 13, 55, 88, 44,
+                                10, 18));
+        boolean output = hasOdd(input);
+        System.out.println(input + " contains odd element: " + output);
+    }
+
+    public static boolean hasOdd(Set<Integer> set) {
+        if ( set.size() == 0 ) {
+            return false;
+        }
+        /* In the case the parameter Set is not a TreeSet, in order to find odd numbers
+         * more quickly, we'll send any elements from the parameter Set to set2 which 
+         * is a TreeSet */
+        Set<Integer> set2 = new TreeSet<>();
+        set2.addAll(set);
+        for ( Integer num : set2 ) {
+            if ( !(num % 2 == 0) ) {
+                return true; // found odd number
+            }
+        }
+        return false; // no odd numbers found in Set
+    }
+}
