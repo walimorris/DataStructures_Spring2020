@@ -270,3 +270,43 @@ public class SortAndRemoveDuplicates {
         return list3;
     }
 }
+
+/**
+ * Exercise 8 
+ * 
+ * Write a method maxLength that accepts a set of strings as parameter and that returns 
+ * the length of the longest string in the list
+ *
+ * If the method is passed an empty set, it should return 0
+ *
+ * @author Wali Morris 
+ * @since 04/29/2020
+ */
+
+import java.util.*;
+
+public class MaxLength {
+    public static void main(String[] args) {
+        Set<String> input = new HashSet<>(
+                        List.of("hello", "from", "the", "otherside",
+                                "I've", "must", "of", "called", "a",
+                                "dozen", "times"));
+        int output = maxLength(input);
+        System.out.println("Longest word length: " + output);
+    }
+
+    public static int maxLength(Set<String> set) {
+        if ( set.size() == 0 ) {
+            return 0;
+        }
+        int max = 0;
+        /* iterates the set and gives max the value of the longest word 
+         * found so far */
+        for ( String word : set ) { 
+            if ( word.length() > max ) { 
+                max = word.length(); 
+            } 
+        } 
+        return max; 
+    } 
+}
