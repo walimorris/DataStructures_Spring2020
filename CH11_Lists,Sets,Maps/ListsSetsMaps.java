@@ -271,6 +271,40 @@ public class SortAndRemoveDuplicates {
     }
 }
 
+/** 
+ * Exercise 6 
+ *
+ * Write a method countUnique that accepts a list of integers as a parameter and
+ * returns the number of unique integer values in the list
+ *
+ * Use a set as auxiliary storage to help you solve this problem
+ *
+ * @author Wali Morris 
+ * @since 04/30/2020
+ */
+
+import java.util.*;
+
+public class CountUnique {
+    public static void main(String[] args) {
+        List<Integer> input = new LinkedList<>(
+                      List.of(3, 7, 3, -1, 2, 3, 7, 2,
+                              15, 15, 4, 3, 10, 11, 2));
+        int output = countUnique(input);
+        System.out.println(input + " has " + output + " unique numbers.");
+    }
+
+    public static int countUnique(List<Integer> list) {
+        if ( list.size() == 0 ) {
+            return 0;
+        }
+        /* HashSet eliminates all duplicates from the list and returns the 
+         * number of unique integers only */
+        Set<Integer> set = new HashSet<>(list);
+        return set.size();
+    }
+}
+
 /**
  * Exercise 8 
  * 
