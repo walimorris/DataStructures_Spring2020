@@ -519,3 +519,46 @@ public class SymmetricSetDifference {
         return C;
     }
 }
+
+/**
+ * Exercise 12 
+ *
+ * Write a method contains3 that accepts a list of strings as a parameter and returns true if any single
+ * string occurs at least 3 times in the list, and false otherwise
+ *
+ * Use a Map as auxiliary storage
+ *
+ * @author Wali Morris
+ * @since 05/01/2020
+ */
+
+import java.util.*;
+
+public class Contains3 {
+    public static void main(String[] args) {
+        List<String> input = new LinkedList<>(
+                        List.of("Cincinnati", "Newark", "Cincinnati",
+                                "Newark", "Stafford", "Cincinnati"));
+        boolean output = contains3(input);
+        System.out.println(input + " contains 3 of the same string: " + output);
+    }
+    
+    public static boolean contains3(List<String> list) {
+        Map<String, Integer> map = new HashMap<>();
+        for ( String word: list ) {
+            /* if map contains word increment its count */
+            if ( map.containsKey(word) ) {
+                int count = map.get(word);
+                map.put(word, count + 1);
+                /* if this decision has been processed and count is 2 then this word will 
+                 * be incremented to 3, return true at this point */
+                if ( count == 2 ) {
+                    return true;
+                }
+            } else {
+                map.put(word, 1); // new word, add to map and begin count as 1
+            }
+        }
+        return false; // map does not contain 3 of the same string
+    }
+}
