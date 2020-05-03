@@ -562,3 +562,54 @@ public class Contains3 {
         return false; // map does not contain 3 of the same string
     }
 }
+
+/**
+ * Exercise Reverse.java
+ *
+ * Write a method reverse that accepts a Map from integers to strings as a 
+ * parameter and returns a new Map of strings to integers that is the orginal's
+ * "reverse"
+ *
+ * The reverse of a Map is defined here to be a new Map that uses the values 
+ * from the original as its keys and the keys from the original as its values
+ *
+ * In other words, if the original Map has pairs (k1, v) and (k2, v) the new 
+ * Map must contain either the pair (v, k1) or (v, k2)
+ *
+ * @author Wali Morris 
+ * @since 05/03/2020
+ */
+
+import java.util.*;
+
+public class Reverse {
+    public static void main(String[] args) {
+        Map<Integer, String> input = new HashMap<>();
+        input.put(41, "Marty");
+        input.put(81, "Sue");
+        input.put(17, "Ed");
+        input.put(31, "Dave");
+        input.put(56, "Ed");
+        input.put(3, "Marty");
+        input.put(29, "Ed");
+        Map<String, Integer> output = reverse(input);
+        System.out.println("Reverse: " + output);
+    }
+    
+    /* Creates a new Map to store reverse key value types. Iterates a Set of all keys where 
+     * original Set's int key becomes value and String value becomes key in new Map. If the 
+     * new Map already contains a key from the original Map, it will not be added to the new 
+     * Map. If the new Map does not contain the type String key, it'll be added.
+     */
+    public static Map<String, Integer> reverse(Map<Integer, String> map) {
+        Map<String, Integer> map2 = new HashMap<>(); 
+        for ( Integer num : map.keySet() ) { // iterate the Set of all keys     
+            int value = num; 
+            String key = map.get(value);
+            if ( !(map2.containsKey(key)) ) { 
+                map2.put(key, value); 
+            } 
+        }           
+        return map2;    
+    } 
+}
