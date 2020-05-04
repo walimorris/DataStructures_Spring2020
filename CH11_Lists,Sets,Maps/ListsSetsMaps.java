@@ -613,3 +613,49 @@ public class Reverse {
         return map2;    
     } 
 }
+
+/**
+ * Exercise MaxOccurrences
+ *
+ * Write a method maxOccurrences that accepts a List of integers as a parameter 
+ * and returns the number of times the most frequently occuring integer (mode)
+ * occurs in the list
+ *
+ * Solve this problem using a Map as auxiliary storage and if the List is 
+ * empty return 0 
+ *
+ * @author Wali Morris 
+ * @since 05/03/2020
+ */
+
+import java.util.*;
+
+public class MaxOccurrences {
+    public static void main(String[] args) {
+        List<Integer> input = new LinkedList<>(
+                        List.of(2, 2, 2, 4, 5, 6, 8, 8, 10, 11));
+        int output = maxOccurrences(input);
+        System.out.println("Mode occurs " + output + " times.");
+    }
+
+    public static int maxOccurrences(List<Integer> list) {
+        if ( list.isEmpty() ) {
+            return 0;
+        }
+        /* iterate the list and increment every integer that has been seen, 
+         * if an integer has not been seen add it to the map with a starting
+         * count of 1 */
+        Map<Integer, Integer> map = new HashMap<>();
+        for ( Integer num : list ) {
+            if ( map.containsKey(num))  {
+                int count = map.get(num);
+                map.put(num, count + 1);
+            } else {
+                map.put(num, 1);
+            }
+        }
+        /* returns the max integer value from map */
+        int mode = Collections.max(map.values());
+        return mode;
+    }
+}
