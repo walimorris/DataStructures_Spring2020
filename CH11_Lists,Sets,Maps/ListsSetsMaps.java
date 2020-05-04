@@ -659,3 +659,65 @@ public class MaxOccurrences {
         return mode;
     }
 }
+
+/**
+ * Exercise Intersect 
+ *
+ * Write a method called intersect that thats two Maps of strings to integers as
+ * parameters and that returns a new Map whose contents are the intersection of
+ * the two
+ *
+ * The intersection of two Maps is defined here as the set of keys and values 
+ * that exists in both maps
+ *
+ * @author Wali Morris
+ * @since 03/04/2020
+ */
+
+import java.util.*;
+
+public class Intersect {
+    public static void main(String[] args) {
+        Map<String, Integer> input1 = new HashMap<>();
+        Map<String, Integer> input2 = new HashMap<>();
+        input1.put("Janet", 87);
+        input1.put("Logan", 62);
+        input1.put("Whitaker", 46);
+        input1.put("Alyssa", 100);
+        input1.put("Stephanie", 80);
+        input1.put("Jeff", 88);
+        input1.put("Kim", 52);
+        input1.put("Sylvia", 95);
+        input2.put("Logan", 62);
+        input2.put("Kim", 52);
+        input2.put("Whitaker", 52);
+        input2.put("Jeff", 88);
+        input2.put("Stephanie", 80);
+        input2.put("Brian", 60);
+        input2.put("Lisa", 83);
+        input2.put("Sylvia", 87);
+        Map<String, Integer> output = intersect(input1, input2);
+        System.out.println(output);
+    }
+	
+    public static Map<String, Integer> intersect(Map<String, Integer> map1,
+                    Map<String, Integer> map2) {
+
+        Map<String, Integer> map3 = new HashMap<>();
+        if ( map1.isEmpty() || map2.isEmpty() ) {
+            return map3; // if any map is empty return empty map3 
+        }
+        /* iterate map1 keys and check if map2 also contains this key. If the 
+         * key exists in map2, evaluate the the values and if they are a match
+         * append both key : value to map3 */
+        for ( String word : map1.keySet() ) {
+            if ( map2.containsKey(word) ) {
+                int value = map2.get(word);
+                if ( map2.get(word).equals(map1.get(word)) ) {
+                    map3.put(word, value);
+                }
+            }
+        }
+        return map3;
+    }
+}
