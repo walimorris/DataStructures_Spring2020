@@ -21,9 +21,8 @@ public class RecursionExample {
 	if ( x == 0 ) { // base case  
 	    System.out.println(x); 
 	} else {
-	    System.out.println(x); 	
-            x -= 1;  	
-	    toZero(x); 
+	    System.out.println(x); 	  	
+	    toZero(x - 1); 
 	}	    
     }  
 }     
