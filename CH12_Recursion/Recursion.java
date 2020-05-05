@@ -18,9 +18,7 @@ public class RecursionExample {
     } 
 
     public static void toZero(int x) {  
-	if ( x == 0 ) { // base case  
-	    System.out.println(x); 
-	} else {
+	if ( x >= 0 ) { // recursive case
 	    System.out.println(x); 	  	
 	    toZero(x - 1); 
 	}	    
