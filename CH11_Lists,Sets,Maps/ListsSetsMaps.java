@@ -564,6 +564,66 @@ public class Contains3 {
 }
 
 /**
+ * Exercise 13
+ *
+ * Write a method called isUnique that accepts a Map whose keys and values 
+ * are strings as a parameter and returns true if no two keys map to the 
+ * same value and false if any two or more keys do map to the same value
+ *
+ * @author Wali Morris 
+ * @since 05/03/2020
+ */
+
+import java.util.*;
+
+public class IsUnique {
+    public static void main(String[] args) {
+        Map <String, String> input1 = new HashMap<>();
+        Map <String, String> input2 = new HashMap<>();
+        input1.put("Marty", "Stepp");
+        input1.put("Stuart", "Reges");
+        input1.put("Jessica", "Miller");
+        input1.put("Amanda", "Camp");
+        input1.put("Hal", "Perkins");
+        input2.put("Kendrick", "Perkins");
+        input2.put("Stuart", "Reges");
+        input2.put("Jessica", "Miller");
+        input2.put("Amanda", "Camp");
+        input2.put("Hal", "Perkins");
+        boolean output = isUnique(input1);
+        boolean output2 = isUnique(input2);
+        System.out.println(input1 + " is unique: " + output);
+        System.out.println(input2 + " is unique: " + output2);
+    }
+	
+    /* Keys in a Map can only map to one value. Therefore, this method uses this rule to 
+     * eliminate values that are already mapped to different keys. If multiple keys are 
+     * associated to one value, that one value will only show up in the mapValues Set once.
+     * This will cause an imbalance between the mapKeys and mapValues Set. An unequal size 
+     * in mapKeys and mapValues will return false indicating that the Map passed to this 
+     * method contains non unique values, an equal size will return true indicating that all
+     * values are unique and mapped to only one key.  
+     */
+    public static boolean isUnique(Map<String, String> map) {
+        /* Set to hold the keys from the Map passed to this method */
+        Set<String> mapKeys = new HashSet<>();
+        /* Set to hold the values from the map passed to this method */
+        Set<String> mapValues = new HashSet<>();
+        /* add eash key and its value to the appropriate Sets */
+        for ( String key : map.keySet() ) {
+            mapKeys.add(key);
+            mapValues.add(map.get(key));
+        }
+        /* Sets will eliminate duplicates in mapValues displaying a possible 
+         * imbalance in key : value pairs */
+        if ( mapKeys.size() == mapValues.size() ) {
+            return true;
+        }
+        return false;
+    }
+}
+
+/**
  * Exercise Reverse.java
  *
  * Write a method reverse that accepts a Map from integers to strings as a 
