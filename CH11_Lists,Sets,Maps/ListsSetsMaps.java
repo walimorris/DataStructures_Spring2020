@@ -566,9 +566,9 @@ public class Contains3 {
 /**
  * Exercise 13
  *
- * Write a method called isUnique that accepts a Map whose keys and values 
- * are strings as a parameter and returns true if no two keys map to the 
- * same value and false if any two or more keys do map to the same value
+ * Write a method called isUnique that accepts a Map whose keys and values are strings as a parameter and 
+ * returns true if no two keys map to the same value and false if any two or more keys do map to the same 
+ * value
  *
  * @author Wali Morris 
  * @since 05/03/2020
@@ -596,21 +596,17 @@ public class IsUnique {
         System.out.println(input2 + " is unique: " + output2);
     }
 	
-    /* Keys in a Map can only map to one value. Therefore, this method uses this rule to 
-     * eliminate values that are already mapped to different keys. If multiple keys are 
-     * associated to one value, that one value will only show up in the mapValues Set once.
-     * This will cause an imbalance between the mapKeys and mapValues Set. An unequal size 
-     * in mapKeys and mapValues will return false indicating that the Map passed to this 
-     * method contains non unique values, an equal size will return true indicating that all
+    /* Keys in a Map can only map to one value. Therefore, this method uses this rule to eliminate values 
+     * that are already mapped to different keys. If multiple keys are associated to one value, that one 
+     * value will only show up in the mapValues Set once. This will cause an imbalance between the mapKeys 
+     * and mapValues Set. An unequal size in mapKeys and mapValues will return false indicating that the Map 
+     * passed to this method contains non unique values, an equal size will return true indicating that all
      * values are unique and mapped to only one key.  
      */
     public static boolean isUnique(Map<String, String> map) {
-        /* Set to hold the keys from the Map passed to this method */
-        Set<String> mapKeys = new HashSet<>();
-        /* Set to hold the values from the map passed to this method */
-        Set<String> mapValues = new HashSet<>();
-        /* add eash key and its value to the appropriate Sets */
-        for ( String key : map.keySet() ) {
+        Set<String> mapKeys = new HashSet<>(); // Set to hold the keys from the Map passed to this method 
+        Set<String> mapValues = new HashSet<>(); // Set to hold the values from the map passed to this method 
+        for ( String key : map.keySet() ) { // add eash key and its value to the appropriate Sets 
             mapKeys.add(key);
             mapValues.add(map.get(key));
         }
