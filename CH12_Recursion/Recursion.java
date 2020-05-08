@@ -1,11 +1,6 @@
 /**
  * Example
  *
- * A try at defining a recursive method before starting Chapter 12 reading and exercises 
- * 
- * NOTE: There's a really good chapter on recursion in GEB by @Douglas R. Hofstadter
- * to read and review 
- *
  * @author Wali Morris 
  * @since 05/05/2020
  */
