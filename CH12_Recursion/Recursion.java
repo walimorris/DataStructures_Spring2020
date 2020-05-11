@@ -1,5 +1,5 @@
 /**
- * Example
+ * Example from book
  *
  * @author Wali Morris 
  * @since 05/05/2020
