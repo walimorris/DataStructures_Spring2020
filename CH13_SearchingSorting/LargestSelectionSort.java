@@ -9,12 +9,10 @@
  *
  * Exercise 5 : 
  * 
+ * Although this algorithm divides the number of iterations N by 2, I want to say the time 
+ * complexity is 0(N/2). It seems that O(N) and O(N/2) have the same linear growth rate so 
+ * I would say this algorithm's time complexity would be the same as O(N). 
  * 
- *
- *
- *
- *
- *
  * Exercise 18
  *
  * Write a modified version of the selection sort algorithm that selects the largest element
@@ -59,6 +57,3 @@ public class LargestSelectionSort {
 	} 
     } 
 } 
-	     	    
-        	    
-
