@@ -1,5 +1,5 @@
 /**
- * Problem 2
+ * Problem 1 
  *
  * Given a HashMap pre-filled with student names as keys and grades as values, complete 
  * main() by reading in the name of a student, outputting their original grade, and then
@@ -61,9 +61,10 @@ public class StudentGrades {
 	    // new grade is written to output
 	    System.out.println(studentName + "'s new grade: " + studentGrades.get(studentName));   
 	} else { 
-	    // There's no key in StudentGrades Map that matches the input 
+	    // no record of student, exit program 
             System.out.println("No record of student"); 
             System.exit(1); 
 	} 
     } 
 } 
+
