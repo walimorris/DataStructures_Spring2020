@@ -43,7 +43,6 @@ public class LargestSelectionSort {
 
     public static void modifiedSelectionSort(int[] arr) {
         for ( int i = 0; i < arr.length; i++ ) {
-            int largest = i; // get largest current
             for ( int j = i + 1; j < arr.length; j++ ) { // get next number 
                 if ( arr[i] > arr[j] ) { // current is larger than next?
 		    /* current number arr[i] is larger, swap larger to right */ 
