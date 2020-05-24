@@ -42,18 +42,16 @@ public class LargestSelectionSort {
     } 
 
     public static void modifiedSelectionSort(int[] arr) {
-	// begin at last index in array, since largest will be at the end 
-	for ( int i = arr.length - 1; i >= 0; i-- ) { 
-	    int largest = i; 
-	    // selecting from back to front 
-            for ( int j = i - 1; j >= 0; j-- ) { 
-		if ( arr[j] > arr[i] ) { // element to the left is larger?
-		    largest = j; // this element becomes largest 
-		    int temp = arr[i]; // swap larger values to the back(right) 
-		    arr[i] = arr[j]; 
-		    arr[j] = temp; 
-		} 
-	    } 
-	} 
-    } 
-} 
+        for ( int i = 0; i < arr.length; i++ ) {
+            int largest = i; // get largest current
+            for ( int j = i + 1; j < arr.length; j++ ) { // get next number 
+                if ( arr[i] > arr[j] ) { // current is larger than next?
+		    /* current number arr[i] is larger, swap larger to right */ 
+                    int temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
+            } 
+        }
+    }
+}
