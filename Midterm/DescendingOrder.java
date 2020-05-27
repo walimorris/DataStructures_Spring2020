@@ -17,22 +17,25 @@ import java.util.*;
 public class DescendingOrder { 
     public static void main(String[] args) { 
 	Scanner scnr = new Scanner(System.in); 
-
-	int input = 0, i = 0; 
-	int numElements = 0; 
-	int[] numbers = new int[10]; 
-
-	/* while inputting integers, if integer is -1, stop the loop. The loop 
-	 * will also exit if 10 integers have been selected */ 
-	while ( !(input == -1 || i == 10) ) { 
-	    System.out.print("Enter an integer: "); 	
-	    input = scnr.nextInt(); 
-	    if ( !(input == -1) ) { // if -1 has not been written 
-	        numbers[i] = input; // input the written integer to number array at index i
-		numElements++; // count number of elements in array so far
-		i++; // increment i to keep track of index 
-	    }	 
-	} 	
+       
+	int input, i = 0; 
+	int numElements = 0;
+        int[] numbers = new int[10];	
+        
+        /* while inputting integers, if integer is -1, stop the loop */  
+        System.out.print("Please enter up to 10 integers (-1 to quit): ");
+        input = scnr.nextInt(); 	
+	while ( input != -1 ) { 
+            /* loop breaks if numbers array has 10 elements, all elements after will not be added 
+	     * to the array */ 		
+            if ( numElements == 10 ) {  
+	        break; 
+	    } 
+	    numbers[i] = input; // input the written integer to number array at index i 		
+            i++; // increment i to keep track of index
+	    numElements++; 
+	    input = scnr.nextInt();  
+	}	    
         selectionSortDescendTrace(numbers, numElements);  
     } 
 
