@@ -63,7 +63,7 @@ public class StudentGrades {
 	} else { 
 	    // no record of student, exit program 
             System.out.println("No record of student"); 
-            System.exit(1); 
+            System.exit(0); 
 	} 
     } 
 } 
