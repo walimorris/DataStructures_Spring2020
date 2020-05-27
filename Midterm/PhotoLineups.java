@@ -40,7 +40,7 @@ public class PhotoLineups {
             System.out.println(); 	    
 	} else { 
 	    /* creates a list to hold each permutation and a list of new names from the names list, 
-	     * removing each name at name(i) and contining this process with the new names list until 
+	     * removing each name at name(i) and continue this process with the new names list until 
 	     * namesList is empty. */  
             for ( int i = 0; i < nameList.size(); i++ ) { 
                 ArrayList<String> newPerms = new ArrayList<String>(permList); 
