@@ -109,3 +109,63 @@ public class Stutter {
         return s; 
     } 
 }
+
+/**
+ * Exercise 3 : Copy Stack  
+ *
+ * Write a method called copyStack that accepts a stack of integers as a parameter and returns a copy of the 
+ * original stack (a new stack with the same values as the original, stored in the same order as the original)
+ *
+ * Your method should create the new stack and fill it up with the same values that are stored in the original 
+ * stack and when your method is done executing, the original stack must be restires to its original state 
+ *
+ * Use one queue as auxiliary storage
+ *
+ * @author Wali Morris
+ * @since 05/30/2020
+ */
+
+import java.util.*;
+
+public class CopyStack {
+    public static void main(String[] args) {
+        int[] stackArray = {9, 3, 5, 7, 8};
+        Stack<Integer> inputStack = new Stack<>();
+        for ( int i = 0; i < stackArray.length; i++ ) {
+            inputStack.push(stackArray[i]);
+        }
+        System.out.println("Original Stack: " + inputStack);
+        /* This stack is the copied stack from the copyStack method 
+         * and not the original stack, although the original stack 
+         * is unchanged */
+        Stack<Integer> output = copyStack(inputStack);
+        System.out.println("Copied Stack  : " + output);
+    }
+	
+    public static Stack<Integer> copyStack(Stack<Integer> originalStack) {
+        Stack<Integer> duplicateStack = new Stack<>();
+        Queue<Integer> auxiliaryQueue = new LinkedList<>();
+        /* uses the auxiliary queue to store elements of the original stack to push to
+         * duplicate stack */
+        while ( !originalStack.isEmpty() ) {
+            auxiliaryQueue.add(originalStack.pop());
+        }
+        /* exchanges elements twice in order to prepare to store the duplicate stack's 
+         * elements in the same sequence as the original stack elements */
+        for ( int j = 0; j <= 2; j++ ) {
+            while ( !auxiliaryQueue.isEmpty() ) {
+                duplicateStack.push(auxiliaryQueue.remove());
+            }
+            while ( !duplicateStack.isEmpty() ) {
+                auxiliaryQueue.add(duplicateStack.pop());
+            }
+        }
+        /* copies the original stacks elements to duplicate stack and restores original stack */
+        while ( !auxiliaryQueue.isEmpty() ) {
+            int num = auxiliaryQueue.remove();
+            duplicateStack.push(num);
+            originalStack.push(num);
+        }
+        return duplicateStack;
+    }
+}
