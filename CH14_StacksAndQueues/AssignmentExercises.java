@@ -109,7 +109,7 @@ public class Palindrome {
         boolean palindrome = true;
         for (int j = 0; j < originalQueueSize; j++ ) {
             int queueElement = queue.remove();
-            if ( !(queueElement == auxiliaryStack.pop()) ) {
+            if ( !(queueElement == auxiliaryStack.pop() && palindrome) ) {
                 palindrome = false;
             }
             queue.add(queueElement);
