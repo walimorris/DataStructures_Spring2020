@@ -8,7 +8,7 @@
  * If your method is passed an empty String it should return 0.0
  *
  * @author Wali Morris
- * @since  04/20/2020
+ * @since  04/19/2020
  */
 
 import java.util.*; 
