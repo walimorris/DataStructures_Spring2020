@@ -1,3 +1,13 @@
+/**
+ * ListNoding Around 
+ * 
+ * This is a client program messing around using the ListNode class and getting the hang off manipulating 
+ * LinkedLists
+ * 
+ * @author Wali Morris 
+ *
+ **/ 
+
 import java.util.*; 
 
 public class ListNodingAround { 
@@ -30,3 +40,32 @@ public class ListNodingAround {
 	System.out.println(); 
     } 	
 } 
+
+/* add a value at the end of the linked list */
+        ListNode list3 = new ListNode(12, new ListNode(2, new ListNode(10)));
+        addNode(list3, 5);
+        System.out.println("adding node with value '5'");
+        ListNode current3 = list3;
+        while ( !(current3 == null) ) {
+            System.out.print(current3.data + " ");
+            current3 = current3.next;
+        }
+        System.out.println();
+    }
+
+    /* This method takes two parameters, a linkedList and a value to add to the end of the 
+     * list. If the list has no values, then the value will be added to the list. If the 
+     * list contains a certain number of elements, the list will be iterated until the last 
+     * node, then the value will be appended to the end */
+    public static void addNode(ListNode list, int value) {
+        if ( list == null ) {
+            list = new ListNode(value);
+        } else {
+            ListNode current = list;
+            while ( !(current.next == null) ) {
+                current = current.next;
+            }
+            current.next = new ListNode(value);
+        }
+    }
+}
