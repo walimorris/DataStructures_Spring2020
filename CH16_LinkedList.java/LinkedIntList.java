@@ -89,9 +89,22 @@ public class LinkedIntList {
 	 } 
      } 
 
+     public void reverseList() { 
+	 ListNode previous = null; 
+	 ListNode current = this.front; 
+	 ListNode following = this.front;
+	 while ( current != null ) { 
+	     following = following.next; 
+	     current.next = previous; 
+	     previous = current; 
+	     current = following; 
+	 } 
+	 this.front = previous; 
+     }  
+
      public boolean isSorted() {
 	 // returns true if list is empty or contains one element 
-	 if ( front == null || this.size() == 1 ) { 
+	 if ( this.front == null || this.size() == 1 ) { 
              return true; 
 	 } else { 
              ListNode current = front;

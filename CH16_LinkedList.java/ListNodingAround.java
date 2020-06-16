@@ -1,13 +1,3 @@
-/**
- * ListNoding Around 
- * 
- * This is a client program messing around using the ListNode class and getting the hang off manipulating 
- * LinkedLists
- * 
- * @author Wali Morris 
- *
- **/ 
-
 import java.util.*; 
 
 public class ListNodingAround { 
@@ -37,35 +27,52 @@ public class ListNodingAround {
         while ( !stack.isEmpty() ) { 
 	    System.out.print(stack.pop() + " "); 
 	} 	    
-	System.out.println(); 
-    } 	
-} 
+	System.out.println();
 
-/* add a value at the end of the linked list */
-        ListNode list3 = new ListNode(12, new ListNode(2, new ListNode(10)));
+        /* add a value at the end of the linked list */ 
+        ListNode list3 = new ListNode(12, new ListNode(2, new ListNode(10))); 
         addNode(list3, 5);
-        System.out.println("adding node with value '5'");
-        ListNode current3 = list3;
-        while ( !(current3 == null) ) {
-            System.out.print(current3.data + " ");
-            current3 = current3.next;
-        }
-        System.out.println();
-    }
+	System.out.println("adding node with value '5'"); 
+	ListNode current3 = list3; 
+	while ( !(current3 == null) ) { 
+	    System.out.print(current3.data + " "); 
+	    current3 = current3.next; 
+	} 
+	System.out.println();
+
+        // use the reverse() method from LinkedIntList Class to reverse a list and print it
+	LinkedIntList simpleList = new LinkedIntList();
+        simpleList.add(3); 
+        simpleList.add(6); 
+        simpleList.add(7); 
+        simpleList.add(9); 
+        simpleList.add(33); 
+        System.out.println("Simple List before reverse: " + simpleList);
+        simpleList.reverseList(); 
+        System.out.println("Simple List after reverse: " + simpleList); 	
+    } 
 
     /* This method takes two parameters, a linkedList and a value to add to the end of the 
      * list. If the list has no values, then the value will be added to the list. If the 
      * list contains a certain number of elements, the list will be iterated until the last 
-     * node, then the value will be appended to the end */
+     * node, then the value will be appended to the end */ 
     public static void addNode(ListNode list, int value) {
-        if ( list == null ) {
-            list = new ListNode(value);
-        } else {
-            ListNode current = list;
-            while ( !(current.next == null) ) {
-                current = current.next;
-            }
-            current.next = new ListNode(value);
-        }
-    }
-}
+	if ( list == null ) { 
+	    list = new ListNode(value); 
+	} else { 		
+	    ListNode current = list; 
+            while ( !(current.next == null) ) { 
+	        current = current.next;
+	    }
+	    current.next = new ListNode(value); 
+	}  
+    } 
+}     
+        
+
+
+
+
+
+
+
