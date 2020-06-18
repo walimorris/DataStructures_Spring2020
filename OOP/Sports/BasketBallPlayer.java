@@ -49,4 +49,3 @@ public class BasketBallPlayer extends Athlete {
 	       "| Jersey: " + super.getNumber() + "| "  + this.getStats(); 	
     } 
 }     
-			        
