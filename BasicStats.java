@@ -8,7 +8,7 @@
  * For the mean and median, round and display the results to the nearest hundredth 
  *
  * @author Wali Morris 
- * @since 06/09/2020
+ * @since 06/19/2020
  */ 
 
 import java.util.Scanner; 
@@ -20,16 +20,17 @@ public class BasicStats {
 	List<Integer> stats = new ArrayList<>();
         int data = 0, error = 0; 
 	
-	/* outer loop continues until -1 is read into STDIN, on valid inputs exiting with 
-	 * -1 will still output statistics */ 
+	/* The outer loop continues to read valid data points, as integers, until -1 is read into STDIN. 
+	 * On valid inputs, exiting with -1 will still output statistics and 'N/A' if that stat does not 
+	 * exist */ 
 	while ( !(data == -1) ) {
             boolean pass = false;
 	    System.out.print("Enter data(-1 to end program): ");
 	    
-	    /* inner loop continues until a valid data value is input into STDIN, this 
-	     * process is confirmed by the boolean flag 'pass'. The user has the option 
-	     * completely end program inputting -2 only on error rounds, this will not 
-	     * output statistics */   
+	    /* The inner loop continues until a valid data value is input into STDIN, an error message will 
+	     * appear to inform the user of any errors. This process is confirmed by the boolean flag 'pass'. 
+	     * The user has the option to completely end the program inputting -2 only on error rounds, this 
+	     * This will fully end the program and will not output statistics */   
 	    while( pass == false || data == -2 ) { 
                 try {
 		    pass = true; 	
@@ -78,7 +79,7 @@ public class BasicStats {
 		    median = none; 
 		    break; 
 	       default: 
-		    /* sorts list to compute statistics, converts numeric values to type string
+		    /* sorts list to compute statistics, converts numeric values to type String
 		     * and reports statistics with errors */ 
                    Collections.sort(stats);  
 	           count = stats.size(); 
@@ -104,7 +105,3 @@ public class BasicStats {
 			   "\n" + "Median: " + median + "\n" + "Errors: " + errors);  
     } 
 }     
-
-
-	    
-
