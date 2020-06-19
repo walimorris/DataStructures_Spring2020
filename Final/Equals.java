@@ -49,7 +49,7 @@ public class Equals {
     } 
 
     /* This method initializes a boolean flag 'stacksAreEqual' to true and if Stacks x and y are of 
-     * the same size, records the original size of both stacks. Both stack elements are then roatated 
+     * the same size, records the original size of both stacks. Both stack elements are then rotated 
      * within for the duration of their original size. If any element from either stack is different, 
      * stacksAreEqual becomes false 
      * */ 
