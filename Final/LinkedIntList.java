@@ -133,7 +133,7 @@ public class LinkedIntList {
      } 
 
      public boolean hasTwoConsecutive() {
-	 // returns false for empty lists and lists that contain one element  
+	 // returns false for empty lists and lists that contains' one element  
 	 if ( this.front == null || this.size() == 1 ) { 
              return false; 
 	 } 
@@ -151,16 +151,3 @@ public class LinkedIntList {
 	 return false; 
      } 
 } 
-
-
-
-
-
-
-
-
-
-
-
-
-
