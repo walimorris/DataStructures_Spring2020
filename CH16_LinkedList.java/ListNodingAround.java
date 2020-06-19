@@ -1,3 +1,10 @@
+/** 
+ * A client program to test the ListNode.java and LinkedIntList.java class methods 
+ *
+ * @author Wali Morris 
+ * @since 06/19/2020
+ */ 
+
 import java.util.*; 
 
 public class ListNodingAround { 
@@ -49,7 +56,20 @@ public class ListNodingAround {
         simpleList.add(33); 
         System.out.println("Simple List before reverse: " + simpleList);
         simpleList.reverseList(); 
-        System.out.println("Simple List after reverse: " + simpleList); 	
+        System.out.println("Simple List after reverse: " + simpleList);
+        LinkedIntList anotherList = new LinkedIntList(); 
+        anotherList.add(1); 
+        anotherList.add(3); 
+        anotherList.add(9); 
+        anotherList.add(11); 
+        boolean containsConsecutives = anotherList.hasTwoConsecutive(); 
+        System.out.println(anotherList + " has consecutives: " + containsConsecutives); // should test to false
+        // adding three numbers to anotherList
+	anotherList.add(33); 
+	anotherList.add(34); 
+	anotherList.add(16); 
+	boolean containsConsecutives2 = anotherList.hasTwoConsecutive(); 
+	System.out.println(anotherList + " has consecutives: " + containsConsecutives2); // should test to true
     } 
 
     /* This method takes two parameters, a linkedList and a value to add to the end of the 
