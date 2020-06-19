@@ -92,11 +92,13 @@ public class BasicStats {
 		   /* uses meanCount to convert float to string with 2 trailing decimal places */ 
 		   mean = String.format("%.02f", meanCount);    
 	           if ( !(count % 2 == 0) ) { 
+		       /* case: total count of data points are odd */
 	               medianCount = stats.get(count / 2);
 		       /* uses meanCount to convert float to string with 2 trailing decimals places */ 
 		       median = String.format("%.02f", medianCount);  
 		   } else {  
-	               medianCount = ((stats.get(count / 2 ) + stats.get(count / 2) ) / 2); 
+	               /* case: total count of data points are even */
+                       medianCount = ((stats.get(count / 2 ) + stats.get((count / 2) + 1 )) / 2); 
 	               median = (String) String.format("%.02f",  medianCount);
 		   }
 	}   
