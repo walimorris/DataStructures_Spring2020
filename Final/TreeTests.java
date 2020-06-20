@@ -12,11 +12,13 @@ public class TreeTests {
         reference1.printSideways();
         int missingBranches1 = reference1.countEmpty(); 
         System.out.println("Missing Branches = " + missingBranches1);
+	System.out.println("Full Tree: " + reference1.isFull()); 
 
 	// builds a sequential IntTree with max = 17 and shows visual 
 	IntTree reference2 = new IntTree(13); 
         reference2.printSideways();
         int missingBranches2 = reference2.countEmpty(); 
-        System.out.println("Missing Branches = " + missingBranches2); 	
+        System.out.println("Missing Branches = " + missingBranches2);
+        System.out.println("Full Tree: " + reference2.isFull()); 	
     }
 }

@@ -1,15 +1,14 @@
 /** 
  * Credit: Building Java Programs 5th Edition 
  *
- * Exercise 2 : countEmpty 
+ * Exercise 7 : isFull
  *
- * Write a method called countEmpty that returns the number of empty branches in a tree
- * An empty tree is considered to have on empty branch(the tree itself)
+ * Write a method called isFull that returns true if a binary tree is full 
+ * and false if it is not
  *
- * For empty trees, your methods should count the total number of empty branches among
- * the nodes of the tree
+ * A full binary tree is one which every node has 0 or 2 children
  *
- * Note: countEmpty() method is the last method in this file 
+ * Note: isFull() method is the last method in this file 
  *
  * @author Wali Morris
  * @since 06/19/2020
@@ -114,5 +113,24 @@ public class IntTree {
             return countEmpty(root.right) + countEmpty(root.left); 
 	}
     } 
-} 
 
+    public boolean isFull() { 
+	return isFull(overallRoot); 
+    } 
+
+    /* At any time if a subtree has only one branch, return false. If a tree
+     * has no branches or has two, continue */ 
+    private boolean isFull(IntTreeNode root) { 
+        if ( root == null ) { 
+	    return true; 
+	} else if ( root.left == null && root.right != null ) { 
+            return false; 
+	} else if ( root.left != null && root.right == null ) { 
+	    return false; 
+	} else { 
+	    /* checks left root and right root, if any branch(right or left) is null
+	     * return false */ 
+	    return isFull(root.left) && isFull(root.right); 
+	} 
+    } 
+} 
