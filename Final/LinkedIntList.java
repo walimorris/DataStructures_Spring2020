@@ -12,7 +12,7 @@
  * These files can be found in github repository DS_Spring2020/CH16_LinkedList
  *
  * @author Wali Morris<walimmorris@gmail.com>  
- * @since 06/18/2020
+ * @since 06/19/2020
  */ 
 
 public class LinkedIntList { 
