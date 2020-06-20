@@ -6,7 +6,7 @@
  * list of integers has two adjacent numbers that are consecutive integers (true if 
  * such a pair exists and false otherwise)
  *
- * Note: assignment method is the last method in this file 
+ * Note: assignment method hasTwoConsecutive() is the last method in this file 
  * 
  * @see LinkedListSorted.java and ListNodingAround.java: for test and client programs
  * These files can be found in github repository DS_Spring2020/CH16_LinkedList
