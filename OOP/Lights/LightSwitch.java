@@ -1,6 +1,8 @@
 /**
  * A Light Switch has two operations on and off which will be represented by 1 and 0, respectively
  *
+ * Add a light percentage ?
+ *
  * @author Wali Morris<walimmorris@gmail.com>
  * @since 06/23/2020
  * @see KitchenLight.java : for example using a LightSwitch object
