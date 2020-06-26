@@ -1,9 +1,8 @@
 /**
- * RationalNumber represents a fraction with an integer numerator and a 
- * denominator 
+ * RationalNumber class represents a fraction with an integer numerator and denominator. 
  *
- * @author Wali Morris
- * @since 06/15/2020
+ * @author Wali Morris<walimmorris@gmail.com>
+ * @since 06/26/2020
  */ 
 
 import java.util.*; 
@@ -16,8 +15,8 @@ public class RationalNumber {
     private int denominator; 
 
     /**
-     * @param numerator: integer for top number 
-     * @param denominator: integer for bottom number
+     * @param numerator: integer  
+     * @param denominator: integer
      * @throws IllegalArgumentException if denomintor is 0
      */ 
     public RationalNumber(int numerator, int denominator) { 
